@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_boilerplate_pro/controllers/app_controller.dart';
 import 'package:flutter_boilerplate_pro/utils/consts.dart';
+import 'package:flutter_boilerplate_pro/utils/custom_printer.dart';
 import 'package:get/get.dart';
+import 'package:logger/logger.dart';
+
+var logger = Logger(
+  printer: CustomPrinter('$_MyHomePageState'),
+);
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +24,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Get.put(AppController(), permanent: true);
     return GetMaterialApp(
       title: kAppTitle,
       debugShowCheckedModeBanner: false,
@@ -45,6 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
+    logger.v("Verbose log");
+    logger.d("Debug log");
+    logger.i("Info log");
+    logger.w("Warning log");
+    logger.e("Error log");
+    logger.wtf("What a terrible failure log");
   }
 
   @override

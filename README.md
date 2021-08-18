@@ -1,6 +1,6 @@
 # flutter_boilerplate_pro
 
-A new Flutter project.
+A better Flutter boilerplate that let developers have more time do write mearningful code.
 
 ## Getting Started
 
