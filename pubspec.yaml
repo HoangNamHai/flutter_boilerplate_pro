@@ -1,4 +1,4 @@
-name: flutter_boilerplate_pro
+name: flutter_app
 description: A new Flutter project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
@@ -19,6 +19,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_rename_app:
+    git:
+      url: https://github.com/rootasjey/flutter_rename_app
 
 flutter:
   uses-material-design: true
@@ -33,3 +36,11 @@ flutter_icons:
   ios: true
   remove_alpha_ios: true
   image_path: "assets/public/images/icon.png"
+
+flutter_rename_app:
+  # Ref: https://pub.dev/packages/flutter_rename_app
+  application_name: Flutter app
+  dart_package_name: flutter_app
+  application_id: com.android.haihn
+  bundle_id: com.ios.haihn
+  android_package_name: com.haihn

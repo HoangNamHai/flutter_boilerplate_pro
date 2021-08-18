@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate_pro/utils/custom_printer.dart';
+import 'package:flutter_app/utils/custom_printer.dart';
 import 'package:logger/logger.dart';
 
 var logger = Logger(

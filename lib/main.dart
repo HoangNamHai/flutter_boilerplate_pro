@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_boilerplate_pro/controllers/app_controller.dart';
-import 'package:flutter_boilerplate_pro/screens/home_page_screen.dart';
-import 'package:flutter_boilerplate_pro/utils/consts.dart';
+import 'package:flutter_app/controllers/app_controller.dart';
+import 'package:flutter_app/screens/home_page_screen.dart';
+import 'package:flutter_app/utils/consts.dart';
 import 'package:get/get.dart';
 
 void main() {
