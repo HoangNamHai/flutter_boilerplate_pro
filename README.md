@@ -40,9 +40,9 @@ Just use it and have fun conding.
 
 ## Sample screenshots
 
-![](./docs/screenshot2.png | width=200)
+<img src="./docs/screenshot2.png" width="200"/>
 
-![](./docs/log-message.png | width=300)
+<img src="./docs/log-message.png" width="300"/>
 
 ## Copyright
 Copyright (c) 2021 Hoang Nam Hai (hai@mana.vn). See [LICENSE](LICENSE.txt)  for further details.
