@@ -7,25 +7,26 @@ Just use it and have fun conding.
 <img src="./docs/icon.png"/>
 
 ## Features:
-- Package `flutter_launcher_icons` is used for creating fast app icon
+- Easy app icon creation
     - The icon file is configured in `pubspec.yaml`
     - Command for update icon: `flutter pub run flutter_launcher_icons:main`
     - Reference: [https://pub.dev/packages/flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
     - Free icon resource: [https://iconarchive.com/](https://iconarchive.com/)
-- Package `flutter_native_splash` is used for creating splash screen
+- Simple splash screen
+    - Splash screen is configured in `pubspec.yaml`
     - Command for update splash screen: `flutter pub run flutter_native_splash:create`
-- Package `styled_widget` is used for widget code style
-- Package `another_flushbar` is used for creating flushbar, similar to `toast`
-- Package `get` is used for state management and routing
+- Use `GetX` for State Management and Routing
     - Pre-created `AppController`
-- Package `cached_network_image`
-- Package `logger` is used for logging
+- Use `styled_widget` is used for widget code style
+- Use `another_flushbar` for beautiful `toast` message
+- Use `logger` package for logging
     - Add `custom_printer` class for customized emojis and log message
-- Package `flutter_rename_app` is used for easy changing app name, app bundle
+- Easy changing app name, app bundle
+    - by using package `flutter_rename_app`
     - App's name and bundle information are configured in `pubspec.yaml`
     - Ref: [https://pub.dev/packages/flutter_rename_app](https://pub.dev/packages/flutter_rename_app)
     - Command for update app name and bundle: `flutter pub run flutter_rename_app`
-- Prefer using app in portrait mode only
+- App is preconfigured to run with portrait mode only
     ```dart
     SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
@@ -33,7 +34,7 @@ Just use it and have fun conding.
       (value) => runApp(MyApp()),
     );
     ```
-- Turn off debugger banner
+- Debugger banner is turned off
     ```dart
     debugShowCheckedModeBanner: false
     ```
