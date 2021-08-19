@@ -38,6 +38,12 @@ flutter_icons:
   remove_alpha_ios: true
   image_path: "assets/public/images/icon.png"
 
+flutter_native_splash:
+  # Ref: https://pub.dev/packages/flutter_native_splash
+  color: "#303030"
+  android: true
+  ios: true
+
 flutter_rename_app:
   # Ref: https://pub.dev/packages/flutter_rename_app
   application_name: Flutter app
