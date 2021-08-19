@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/custom_printer.dart';
+import 'package:flutter_app/utils/utils.dart';
 import 'package:logger/logger.dart';
 
 var logger = Logger(
@@ -45,6 +46,21 @@ class _HomePageScreenState extends State<HomePageScreen> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                alert(msg: 'Hello world....');
+              },
+              child: Text('Show sample flush bar'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                alert(
+                    msg: 'Hello Flutter',
+                    color: Colors.green.shade300,
+                    backgroundColor: Colors.green.shade900);
+              },
+              child: Text('Another sample flush bar'),
             ),
           ],
         ),
