@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:logger/logger.dart';
+import 'package:flutter_app/utils/custom_printer.dart';
+import './{{snakeCase name}}_screen_controller.dart';
+
+var logger = Logger(
+  printer: CustomPrinter('{{pascalCase name}}Screen'),
+);
+
+class {{pascalCase name}}Screen extends StatefulWidget {
+  {{pascalCase name}}Screen({Key? key}) : super(key: key);
+
+  @override
+  _{{pascalCase name}}Screen createState() => _{{pascalCase name}}Screen();
+}
+
+class _{{pascalCase name}}Screen extends State<{{pascalCase name}}Screen> {
+  final {{pascalCase name}}Controller {{camelCase name}}Controller = Get.put({{pascalCase name}}Controller());
+
+  @override
+  void initState() {
+    logger.v("{{pascalCase name}}Screen init");
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text('{{titleCase name}} Screen'),
+      ),
+    );
+  }
+}

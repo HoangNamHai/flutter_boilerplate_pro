@@ -1,0 +1,24 @@
+import 'package:get/get.dart';
+import 'package:logger/logger.dart';
+import 'package:flutter_app/utils/custom_printer.dart';
+
+var logger = Logger(
+  printer: CustomPrinter('{{pascalCase name}}ScreenController'),
+);
+
+class {{pascalCase name}}Controller extends GetxController {
+  
+  @override
+  void onInit() {
+    logger.v('{{pascalCase name}}ScreenController onInit');
+    super.onInit();
+  }
+
+  @override
+  void onReady() {
+  }
+
+  @override
+  void onClose() {
+  }
+}

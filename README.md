@@ -17,7 +17,7 @@ Just use it and have fun conding.
     - Command for update splash screen: `flutter pub run flutter_native_splash:create`
 - Use `GetX` for State Management and Routing
     - Pre-created `AppController`
-- Use `styled_widget` is used for widget code style
+- Use `styled_widget` for better widget code style
 - Use `another_flushbar` for beautiful `toast` message
 - Use `logger` package for logging
     - Add `custom_printer` class for customized emojis and log message
@@ -38,10 +38,11 @@ Just use it and have fun conding.
     ```dart
     debugShowCheckedModeBanner: false
     ```
+- Use dark theme by default
 
 ## Sample screenshots
 
-<img src="./docs/screenshot2.png" width="350"/>
+<img src="./docs/screenshot2.png" width="450"/>
 
 <img src="./docs/log-message.png"/>
 

@@ -1,0 +1,36 @@
+module.exports = function (plop) {
+  // controller generator
+  plop.setGenerator("controller", {
+    description: "application controller logic",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Controller name:",
+      },
+    ],
+    actions: [],
+  });
+  plop.setGenerator("screen", {
+    description: "application screen",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Screen name (ex: Hello World):",
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'lib/screens/{{snakeCase name}}/{{snakeCase name}}_screen.dart',
+        templateFile: 'templates/screens/default_screen.dart.hbs',
+      },
+      {
+        type: 'add',
+        path: 'lib/screens/{{snakeCase name}}/{{snakeCase name}}_screen_controller.dart',
+        templateFile: 'templates/screens/default_screen_controller.dart.hbs',
+      },
+    ],
+  });
+};
