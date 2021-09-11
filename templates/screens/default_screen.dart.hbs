@@ -9,6 +9,8 @@ var logger = Logger(
 );
 
 class {{pascalCase name}}Screen extends StatefulWidget {
+  static String tag = '/{{snakeCase name}}';
+
   {{pascalCase name}}Screen({Key? key}) : super(key: key);
 
   @override
