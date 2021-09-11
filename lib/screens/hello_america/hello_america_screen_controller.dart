@@ -3,14 +3,14 @@ import 'package:logger/logger.dart';
 import '../../utils/custom_printer.dart';
 
 var logger = Logger(
-  printer: CustomPrinter('{{pascalCase name}}ScreenController'),
+  printer: CustomPrinter('HelloAmericaScreenController'),
 );
 
-class {{pascalCase name}}Controller extends GetxController {
+class HelloAmericaController extends GetxController {
   
   @override
   void onInit() {
-    logger.v('{{pascalCase name}}ScreenController onInit');
+    logger.v('HelloAmericaScreenController onInit');
     super.onInit();
   }
 
