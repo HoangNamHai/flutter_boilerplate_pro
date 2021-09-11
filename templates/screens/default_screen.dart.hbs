@@ -28,9 +28,12 @@ class _{{pascalCase name}}Screen extends State<{{pascalCase name}}Screen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('{{titleCase name}} Screen'),
+    return Scaffold(
+      appBar: AppBar(title: Text('{{titleCase name}} Screen')),
+      body: Container(
+        child: Center(
+          child: Text('{{titleCase name}} Screen'),
+        ),
       ),
     );
   }
