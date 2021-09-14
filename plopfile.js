@@ -33,4 +33,15 @@ module.exports = function (plop) {
       },
     ],
   });
+  plop.setGenerator("drawer", {
+    description: "Add application drawer",
+    prompts: [],
+    actions: [
+      {
+        type: "add",
+        path: "lib/app_drawer.dart",
+        templateFile: 'templates/widgets/app_drawer.dart'
+      }
+    ]
+  });
 };
