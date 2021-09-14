@@ -39,7 +39,7 @@ module.exports = function (plop) {
     actions: [
       {
         type: "add",
-        path: "lib/app_drawer.dart",
+        path: "lib/screens/app_drawer.dart",
         templateFile: 'templates/widgets/app_drawer.dart'
       }
     ]
