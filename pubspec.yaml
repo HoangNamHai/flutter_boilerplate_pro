@@ -40,12 +40,14 @@ flutter_icons:
 
 flutter_native_splash:
   # Ref: https://pub.dev/packages/flutter_native_splash
+  # flutter pub run flutter_native_splash:create
   color: "#303030"
   android: true
   ios: true
 
 flutter_rename_app:
   # Ref: https://pub.dev/packages/flutter_rename_app
+  # flutter pub run flutter_rename_app
   application_name: Flutter app
   dart_package_name: flutter_app
   application_id: com.android.flutter_app
