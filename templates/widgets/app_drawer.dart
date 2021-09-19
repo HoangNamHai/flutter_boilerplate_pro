@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -20,7 +21,9 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.info),
             title: Text('Main'),
-            onTap: () {},
+            onTap: () {
+              Get.back();
+            },
           ),
         ],
       ),
