@@ -28,7 +28,11 @@ class MyApp extends StatelessWidget {
         accentColor: kAccentColor,
         brightness: kUseDarkTheme ? Brightness.dark : Brightness.light,
       ),
-      home: HomePageScreen(title: kAppTitle),
+      // home: HomePageScreen(title: kAppTitle),
+      initialRoute: HomePageScreen.tag,
+      getPages: [
+        GetPage(name: HomePageScreen.tag, page: () => HomePageScreen(title: 'Home')),
+      ],
     );
   }
 }

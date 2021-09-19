@@ -23,6 +23,7 @@ class AppDrawer extends StatelessWidget {
             title: Text('Main'),
             onTap: () {
               Get.back();
+              // Get.offNamed(MainScreen.tag);
             },
           ),
         ],

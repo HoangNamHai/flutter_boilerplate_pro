@@ -8,6 +8,8 @@ var logger = Logger(
 );
 
 class HomePageScreen extends StatefulWidget {
+  static String tag = '/homepage';
+
   HomePageScreen({Key? key, required this.title}) : super(key: key);
   final String title;
 
@@ -55,10 +57,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                alert(
-                    msg: 'Hello Flutter',
-                    color: Colors.green.shade300,
-                    backgroundColor: Colors.green.shade900);
+                alert(msg: 'Hello Flutter', color: Colors.green.shade300, backgroundColor: Colors.green.shade900);
               },
               child: Text('Another sample flush bar'),
             ),
