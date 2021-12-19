@@ -16,6 +16,9 @@ dependencies:
   cached_network_image: ^3.1.0
   logger: ^1.0.0
   another_flushbar: ^1.10.24
+  flutter_markdown: ^0.6.9
+  google_fonts: ^2.1.0
+  url_launcher: 6.0.9
 
 dev_dependencies:
   flutter_test:
