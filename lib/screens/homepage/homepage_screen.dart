@@ -66,8 +66,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
       selectedItemColor: kcPrimary,
       unselectedLabelStyle: ksBody.copyWith(fontSize: 12),
       items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.auto_graph_outlined), label: 'Dashboard'),
-        BottomNavigationBarItem(icon: Icon(Icons.checklist_rounded), label: 'Study'),
+        BottomNavigationBarItem(icon: Icon(Icons.auto_graph_outlined), label: 'View 1'),
+        BottomNavigationBarItem(icon: Icon(Icons.checklist_rounded), label: 'View 2'),
         BottomNavigationBarItem(icon: Icon(Icons.account_circle_outlined), label: 'Profile'),
       ],
       currentIndex: selectedIndex,

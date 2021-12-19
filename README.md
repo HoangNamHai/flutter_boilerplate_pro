@@ -7,6 +7,21 @@ Just use it and have fun conding.
 <img src="./docs/icon.png"/>
 
 ## Features:
+
+
+### 20/12/2021
+- apply dark theme
+- add markdown support
+<img src="./docs/view1.png" width="450"/>
+
+- simplify code for Text Widget by adding adding method for String class
+<img src="./docs/view2.png" width="450"/>
+<img src="./docs/stringExtension.png" width="450"/>
+
+- add very basic profile view with URL launcher
+ <img src="./docs/viewProfile.png" width="450"/>
+
+### 09/2021
 - Easy app icon creation
     - The icon file is configured in `pubspec.yaml`
     - Command for update icon: `flutter pub run flutter_launcher_icons:main`
@@ -42,9 +57,8 @@ Just use it and have fun conding.
 
 ## Sample screenshots
 
-<img src="./docs/screenshot2.png" width="450"/>
+<img src="./docs/alert.png" width="450"/>
 
-<img src="./docs/log-message.png"/>
 
 ## Copyright
 Copyright (c) 2021 Hoang Nam Hai (hai@mana.vn). See [LICENSE](LICENSE.txt)  for further details.
