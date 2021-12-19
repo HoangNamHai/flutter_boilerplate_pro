@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:get/get.dart';
 
 const kFontHeader = 'Bebas Neue';
 const kFontBody = 'Poppins';
@@ -179,6 +180,10 @@ extension ExtendedText on Text {
         h4: ksH4,
         h5: ksH5,
         h6: ksH6,
+        blockquoteDecoration: BoxDecoration(
+          color: kcBgDialog,
+          borderRadius: BorderRadius.circular(2.0),
+        ),
         code: ksCode,
       ),
     );
@@ -200,4 +205,20 @@ extension ExtendedString on String {
   Widget caption() => Text(this, style: ksCaption);
   Widget code() => Text(this, style: ksCode);
   Widget markdown() => Text(this).markdown();
+  Widget headerTile() {
+    return Container(
+      color: kcBgHeaderDark,
+      child: Container(
+        width: double.infinity,
+        child: Text(
+          this,
+        ).body(),
+      ).paddingOnly(
+        top: 8,
+        bottom: 8,
+        left: 16,
+        right: 16,
+      ),
+    );
+  }
 }
