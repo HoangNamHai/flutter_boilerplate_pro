@@ -7,7 +7,9 @@ Just use it and have fun conding.
 <img src="./docs/icon.png"/>
 
 ## Features:
-
+- Firebase Authentication
+    - Instruction for adding Firebase to project: https://blog.codemagic.io/firebase-authentication-google-sign-in-using-flutter/
+        + adding GoogleService-Info.plist & update Info.plist
 
 ### 20/12/2021
 - apply dark theme
