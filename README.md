@@ -62,5 +62,11 @@ Just use it and have fun conding.
 <img src="./docs/alert.png" width="450"/>
 
 
+## TODO:
+- add `Subscribe for Premium access` button
+    + show purchasingDialog
+- add detail information of subscription on profile view
+- add demo entitlements access
+- add `restore purchases` features
 ## Copyright
 Copyright (c) 2021 Hoang Nam Hai (hai@mana.vn). See [LICENSE](LICENSE.txt)  for further details.

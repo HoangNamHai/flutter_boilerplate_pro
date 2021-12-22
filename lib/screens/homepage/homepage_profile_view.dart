@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/controllers/app_controller.dart';
 import 'package:flutter_app/utils/consts.dart';
 import 'package:flutter_app/utils/styles.dart';
+import 'package:flutter_app/utils/utils.dart';
 import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -22,6 +23,12 @@ class _HomepageProfileViewState extends State<HomepageProfileView> {
         'Account'.headerTile(),
         'ID: ${appController.user?.uid}'.body(),
         'Creation at: ${appController.user?.metadata.creationTime}\n'.body(),
+        ElevatedButton(
+          onPressed: () {
+            alert(msg: 'Not implemented yet');
+          },
+          child: 'Subcribe for premium access'.body(),
+        ),
       ],
     );
   }

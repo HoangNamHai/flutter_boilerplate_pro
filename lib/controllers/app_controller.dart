@@ -36,9 +36,12 @@ class AppController extends GetxController {
   }
 
   void _initInAppPurchasing() async {
+    logger.v('_initInAppPurchasing v2');
     Purchases.setup(kRevCatApiKey, appUserId: null, observerMode: false);
+    logger.v(Purchases);
     await Purchases.setDebugLogsEnabled(true);
     offerings = await Purchases.getOfferings();
+    logger.v(offerings);
     Purchases.addPurchaserInfoUpdateListener((purchaserInfo) async {
       purchaserInfo = await Purchases.getPurchaserInfo();
       String appUserID = await Purchases.appUserID;
