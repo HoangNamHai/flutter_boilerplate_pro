@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/controllers/app_controller.dart';
+import 'package:flutter_app/dialogs/subscription_dialog.dart';
 import 'package:flutter_app/utils/consts.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:flutter_app/utils/utils.dart';
@@ -25,7 +26,8 @@ class _HomepageProfileViewState extends State<HomepageProfileView> {
         'Creation at: ${appController.user?.metadata.creationTime}\n'.body(),
         ElevatedButton(
           onPressed: () {
-            alert(msg: 'Not implemented yet');
+            // alert(msg: 'Not implemented yet');
+            showSlidingSheet(SubscriptionDialog());
           },
           child: 'Subcribe for premium access'.body(),
         ),
