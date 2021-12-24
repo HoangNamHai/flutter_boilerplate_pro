@@ -33,6 +33,23 @@ module.exports = function (plop) {
       },
     ],
   });
+  plop.setGenerator("dialog", {
+    description: "application dialog",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Dialog name (ex: Hello World):",
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'lib/dialogs/{{snakeCase name}}_dialog.dart',
+        templateFile: 'templates/dialogs/dialog1.dart.hbs',
+      },
+    ],
+  });
   plop.setGenerator("drawer", {
     description: "Add application drawer",
     prompts: [],
