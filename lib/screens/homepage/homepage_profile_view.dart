@@ -24,13 +24,15 @@ class _HomepageProfileViewState extends State<HomepageProfileView> {
         'Account'.headerTile(),
         'ID: ${appController.user?.uid}'.body(),
         'Creation at: ${appController.user?.metadata.creationTime}\n'.body(),
-        ElevatedButton(
-          onPressed: () {
-            // alert(msg: 'Not implemented yet');
-            showSlidingSheet(SubscriptionDialog());
-          },
-          child: 'Subcribe for premium access'.body(),
-        ),
+        Obx(() {
+          // Reactive to enable or disable the subscribe button
+          print(appController.iState.value);
+          return appController.isEntitlementActivated
+              ? Container()
+              : 'Subcribe for premium access'.button(() {
+                  showSlidingSheet(SubscriptionDialog());
+                });
+        }),
       ],
     );
   }
@@ -41,26 +43,23 @@ class _HomepageProfileViewState extends State<HomepageProfileView> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Obx(() {
-              print(appController.iState.value);
-              return buildAccountTile();
-            }),
+            buildAccountTile(),
             'Help & Support'.headerTile(),
             ListTile(
-              leading: Icon(MdiIcons.helpRhombusOutline, size: 30),
-              trailing: Icon(Icons.chevron_right),
+              leading: Icon(MdiIcons.fromString('helpRhombusOutline'), size: 30),
+              trailing: Icon(MdiIcons.fromString('chevronRight'), size: 24),
               title: Text('Help & Message Center').body(),
               onTap: () => launch(kUrlHelpCenter),
             ),
             ListTile(
-              leading: Icon(MdiIcons.fileDocument, size: 30),
-              trailing: Icon(Icons.chevron_right),
+              leading: Icon(MdiIcons.fromString('fileDocument'), size: 30),
+              trailing: Icon(MdiIcons.fromString('chevronRight'), size: 24),
               title: Text('Terms of Service').body(),
               onTap: () => launch(kUrlTermsOfService),
             ),
             ListTile(
-              leading: Icon(MdiIcons.accountCircleOutline, size: 30),
-              trailing: Icon(Icons.chevron_right),
+              leading: Icon(MdiIcons.fromString('accountCircleOutline'), size: 30),
+              trailing: Icon(MdiIcons.fromString('chevronRight'), size: 24),
               title: Text('Privacy Policy').body(),
               onTap: () => launch(kUrlPrivacyPolicy),
             ),

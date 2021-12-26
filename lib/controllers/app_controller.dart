@@ -1,6 +1,5 @@
-import 'package:flutter_app/utils/consts.dart';
 import 'package:flutter_app/utils/custom_printer.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:flutter_app/utils/in_app_purchases.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/logger.dart';
 import 'package:get/get.dart';
@@ -16,6 +15,12 @@ class AppController extends GetxController {
   var offerings;
   var purchaserInfo;
   bool isEntitlementActivated = false;
+
+  Future<PurchaserInfo> purchase(Package? selectedPackage) async {
+    PurchaserInfo info = await Purchases.purchasePackage(selectedPackage as Package);
+    purchaserInfo = info;
+    return info;
+  }
 
   void _initFirebaseEventHandler() {
     logger.v('_initFirebaseEventHandler');

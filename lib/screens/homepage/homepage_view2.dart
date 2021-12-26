@@ -28,18 +28,12 @@ class _HomepageView2State extends State<HomepageView2> {
           'H6 Alolo'.h6(),
           'Body text'.body(),
           'Caption text'.caption(),
-          ElevatedButton(
-            onPressed: () {
-              alert(msg: 'Hello world....');
-            },
-            child: 'Show sample flush bar'.body(),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              alert(msg: 'Hello Flutter', color: Colors.green.shade300, backgroundColor: Colors.green.shade900);
-            },
-            child: 'Another sample flush bar'.body(),
-          ),
+          'Show sample flush bar'.button(() {
+            alert(msg: 'Hello world....');
+          }),
+          'Another sample flush bar'.button(() {
+            alert(msg: 'Hello Flutter', color: Colors.green.shade300, backgroundColor: Colors.green.shade900);
+          })
         ],
       ),
     );

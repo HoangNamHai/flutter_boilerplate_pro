@@ -221,4 +221,11 @@ extension ExtendedString on String {
       ),
     );
   }
+
+  Widget button(VoidCallback func) {
+    return ElevatedButton(
+      onPressed: func,
+      child: this.body(),
+    );
+  }
 }
