@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/controllers/app_controller.dart';
 import 'package:flutter_app/dialogs/subscription_dialog.dart';
 import 'package:flutter_app/utils/consts.dart';
+import 'package:flutter_app/utils/in_app_purchases.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:flutter_app/utils/utils.dart';
 import 'package:get/get.dart';
@@ -37,6 +38,29 @@ class _HomepageProfileViewState extends State<HomepageProfileView> {
     );
   }
 
+  Widget buildEntitlementsInfoTile() {
+    return Obx(() {
+      // Reactive to enable or disable the subscribe button
+      print(appController.iState.value);
+      if (appController.purchaserInfo == null) return Container();
+      String md = '';
+      for (var ent in appController.purchaserInfo.entitlements.all.values) {
+        md = md + entitlementInfoToMarkdown(ent);
+      }
+      return Container(
+        child: Column(
+          children: [
+            'Entitlements'.headerTile(),
+            md.markdown(),
+            'Manage'.button(() {
+              launch(appController.purchaserInfo.managementURL);
+            }),
+          ],
+        ),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,6 +68,7 @@ class _HomepageProfileViewState extends State<HomepageProfileView> {
         child: Column(
           children: [
             buildAccountTile(),
+            buildEntitlementsInfoTile(),
             'Help & Support'.headerTile(),
             ListTile(
               leading: Icon(MdiIcons.fromString('helpRhombusOutline'), size: 30),

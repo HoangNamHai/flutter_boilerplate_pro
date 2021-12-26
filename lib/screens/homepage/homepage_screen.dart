@@ -46,10 +46,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: navViews[selectedIndex],
+      // appBar: AppBar(
+      //   title: Text(widget.title),
+      // ),
+      body: SafeArea(child: navViews[selectedIndex]),
       bottomNavigationBar: buildBottomNavBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,

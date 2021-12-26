@@ -1,4 +1,6 @@
 // RevCat configuration
+import 'package:purchases_flutter/entitlement_info_wrapper.dart';
+
 const kRevCatApiKey = 'appl_chlrKneYzuaxuFIbpHHCpTppnON';
 const kEntitlementID = 'Premium';
 
@@ -31,3 +33,13 @@ Map<String, ProductInfo> kProductsInfo = {
   'fbp_3599_3m': ProductInfo(name: 'Quarterly', tag: '20% OFF'),
   'fbp_8999_1y_1w0': ProductInfo(name: 'Yearly', tag: '50% OFF'),
 };
+
+String entitlementInfoToMarkdown(EntitlementInfo ent) {
+  return '''
+##### ${ent.identifier}: 
+- Purchased on: ${ent.latestPurchaseDate}
+- Expires on: ${ent.expirationDate}
+- Status: ${ent.isActive ? 'Active' : 'Expired'}
+
+''';
+}

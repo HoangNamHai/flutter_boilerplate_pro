@@ -19,6 +19,7 @@ class AppController extends GetxController {
   Future<PurchaserInfo> purchase(Package? selectedPackage) async {
     PurchaserInfo info = await Purchases.purchasePackage(selectedPackage as Package);
     purchaserInfo = info;
+    iState++;
     return info;
   }
 
@@ -36,7 +37,7 @@ class AppController extends GetxController {
       logger.v('_signInAnonymously');
       await FirebaseAuth.instance.signInAnonymously();
     } catch (e) {
-      print(e);
+      logger.e(e);
     }
   }
 
