@@ -43,6 +43,7 @@ class _HomepageProfileViewState extends State<HomepageProfileView> {
       // Reactive to enable or disable the subscribe button
       print(appController.iState.value);
       if (appController.purchaserInfo == null) return Container();
+      if (appController.purchaserInfo.entitlements.active.length == 0) return Container();
       String md = '';
       for (var ent in appController.purchaserInfo.entitlements.all.values) {
         md = md + entitlementInfoToMarkdown(ent);

@@ -16,6 +16,16 @@ class AppController extends GetxController {
   var purchaserInfo;
   bool isEntitlementActivated = false;
 
+  void restorePurchase() async {
+    try {
+      PurchaserInfo restoredInfo = await Purchases.restoreTransactions();
+      purchaserInfo = restoredInfo;
+      iState++;
+    } on Exception catch (e) {
+      logger.e(e);
+    }
+  }
+
   Future<PurchaserInfo> purchase(Package? selectedPackage) async {
     PurchaserInfo info = await Purchases.purchasePackage(selectedPackage as Package);
     purchaserInfo = info;
@@ -29,6 +39,8 @@ class AppController extends GetxController {
       user = _user;
       iState++;
       logger.w('[AuthStateChanged] $user');
+      // Only init IAP after user is logged in
+      _initInAppPurchasing();
     });
   }
 
@@ -43,19 +55,22 @@ class AppController extends GetxController {
 
   void _initInAppPurchasing() async {
     logger.v('_initInAppPurchasing v2');
-    Purchases.setup(kRevCatApiKey, appUserId: null, observerMode: false);
-    logger.v(Purchases);
+    Purchases.setup(kRevCatApiKey, appUserId: user!.uid, observerMode: false);
     await Purchases.setDebugLogsEnabled(true);
     offerings = await Purchases.getOfferings();
-    logger.v(offerings);
-    Purchases.addPurchaserInfoUpdateListener((purchaserInfo) async {
-      purchaserInfo = await Purchases.getPurchaserInfo();
-      String appUserID = await Purchases.appUserID;
-      logger.w('addPurchaserInfoUpdateListener appUserID: $appUserID');
-      logger.w('purchaserInfo: $purchaserInfo');
+    purchaserInfo = await Purchases.getPurchaserInfo();
+    // String appUserID = await Purchases.appUserID;
+    (purchaserInfo.entitlements.all[kEntitlementID] != null && purchaserInfo.entitlements.all[kEntitlementID]!.isActive) ? isEntitlementActivated = true : isEntitlementActivated = false;
+    logger.w('offerings: $offerings');
+    logger.w('purchaserInfo: $purchaserInfo');
+    // logger.w('appUserID: $appUserID');
+
+    Purchases.addPurchaserInfoUpdateListener((pInfo) async {
+      purchaserInfo = pInfo;
       (purchaserInfo.entitlements.all[kEntitlementID] != null && purchaserInfo.entitlements.all[kEntitlementID]!.isActive) ? isEntitlementActivated = true : isEntitlementActivated = false;
+      logger.w('🟣 purchaserInfo: $purchaserInfo');
+      logger.w('🟣 addPurchaserInfoUpdateListener entitlement: $isEntitlementActivated');
       iState++;
-      logger.w('addPurchaserInfoUpdateListener entitlement: $isEntitlementActivated');
     });
   }
 
@@ -64,7 +79,6 @@ class AppController extends GetxController {
     super.onInit();
     _initFirebaseEventHandler();
     _signInAnonymously();
-    _initInAppPurchasing();
   }
 
   @override

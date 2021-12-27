@@ -148,12 +148,9 @@ class SubscriptionDialogState extends State<SubscriptionDialog> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        'Term of service'.caption().gestures(onTap: () {
-          launch(kUrlTermsOfService);
-        }),
-        ' | Privacy policy'.caption().gestures(onTap: () {
-          launch(kUrlPrivacyPolicy);
-        }),
+        'Term of service'.caption().gestures(onTap: () => launch(kUrlTermsOfService)),
+        ' | Privacy policy'.caption().gestures(onTap: () => launch(kUrlPrivacyPolicy)),
+        ' | Restore purchases'.caption().gestures(onTap: () => appController.restorePurchase()),
       ],
     );
   }
