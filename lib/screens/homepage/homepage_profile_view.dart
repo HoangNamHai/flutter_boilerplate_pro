@@ -93,7 +93,7 @@ class _HomepageProfileViewState extends State<HomepageProfileView> {
             ListTile(
               leading: Icon(MdiIcons.informationOutline, size: 30),
               trailing: Icon(MdiIcons.fromString('chevronRight'), size: 24),
-              title: Text('About this app').body(),
+              title: Text('About "$kAppTitle"').body(),
               onTap: () => Get.toNamed(AppIntroScreen.tag),
             ),
           ],
