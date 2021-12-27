@@ -25,6 +25,7 @@ dependencies:
   purchases_flutter: ^3.8.0
   styled_widget: ^0.4.0+3
   sliding_sheet: ^0.5.2
+  introduction_screen: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +38,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/intro/
     - assets/public/
     - assets/public/images/
   

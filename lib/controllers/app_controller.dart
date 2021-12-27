@@ -1,5 +1,5 @@
 import 'package:flutter_app/utils/custom_printer.dart';
-import 'package:flutter_app/utils/in_app_purchases.dart';
+import 'package:flutter_app/utils/in_app_purchases_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/logger.dart';
 import 'package:get/get.dart';

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/controllers/app_controller.dart';
 import 'package:flutter_app/dialogs/subscription_dialog.dart';
+import 'package:flutter_app/screens/app_intro/app_intro_screen.dart';
 import 'package:flutter_app/utils/consts.dart';
-import 'package:flutter_app/utils/in_app_purchases.dart';
+import 'package:flutter_app/utils/in_app_purchases_config.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:flutter_app/utils/utils.dart';
 import 'package:get/get.dart';
@@ -88,6 +89,12 @@ class _HomepageProfileViewState extends State<HomepageProfileView> {
               trailing: Icon(MdiIcons.fromString('chevronRight'), size: 24),
               title: Text('Privacy Policy').body(),
               onTap: () => launch(kUrlPrivacyPolicy),
+            ),
+            ListTile(
+              leading: Icon(MdiIcons.informationOutline, size: 30),
+              trailing: Icon(MdiIcons.fromString('chevronRight'), size: 24),
+              title: Text('About this app').body(),
+              onTap: () => Get.toNamed(AppIntroScreen.tag),
             ),
           ],
         ),

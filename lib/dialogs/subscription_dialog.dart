@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/controllers/app_controller.dart';
 import 'package:flutter_app/utils/colors.dart';
 import 'package:flutter_app/utils/consts.dart';
-import 'package:flutter_app/utils/in_app_purchases.dart';
+import 'package:flutter_app/utils/in_app_purchases_config.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:get/get.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';

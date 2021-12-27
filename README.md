@@ -10,6 +10,8 @@ Just use it and have fun conding.
 - Firebase Authentication
     - Instruction for adding Firebase to project: https://blog.codemagic.io/firebase-authentication-google-sign-in-using-flutter/
         + adding GoogleService-Info.plist & update Info.plist
+- List of icons can be used in app: https://materialdesignicons.com/ 
+    - Usage exaple: `Icon(MdiIcons.fromString('helpRhombusOutline'), size: 30)`
 
 ### 20/12/2021
 - apply dark theme

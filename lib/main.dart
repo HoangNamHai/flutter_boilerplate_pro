@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/controllers/app_controller.dart';
+import 'package:flutter_app/screens/app_intro/app_intro_screen.dart';
 import 'package:flutter_app/screens/homepage/homepage_screen.dart';
 import 'package:flutter_app/utils/consts.dart';
 import 'package:get/get.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
       initialRoute: HomePageScreen.tag,
       getPages: [
         GetPage(name: HomePageScreen.tag, page: () => HomePageScreen(title: 'Home')),
+        GetPage(name: AppIntroScreen.tag, page: () => AppIntroScreen()),
       ],
     );
   }
