@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,6 +23,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   final box = GetStorage();
 
   @override
@@ -42,6 +44,9 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: HomePageScreen.tag, page: () => HomePageScreen(title: 'Home')),
         GetPage(name: AppIntroScreen.tag, page: () => AppIntroScreen()),
+      ],
+      navigatorObservers: [
+        FirebaseAnalyticsObserver(analytics: analytics),
       ],
     );
   }
