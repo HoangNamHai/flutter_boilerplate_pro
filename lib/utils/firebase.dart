@@ -1,0 +1,1 @@
+const kUserSettings = 'userSettings'; // Collection name ở Firestore

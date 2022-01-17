@@ -1,4 +1,8 @@
+import 'dart:convert';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_app/utils/custom_printer.dart';
+import 'package:flutter_app/utils/firebase.dart';
 import 'package:flutter_app/utils/in_app_purchases_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/logger.dart';
@@ -9,12 +13,16 @@ var logger = Logger(
   printer: CustomPrinter('AppController'),
 );
 
+final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
 class AppController extends GetxController {
   var iState = 0.obs; // Status count; used for Rx
-  User? user;
+  var currentUser = Rx<User?>(null);
   var offerings;
   var purchaserInfo;
+  Map<String, dynamic> userSettings = {};
   bool isEntitlementActivated = false;
+  bool isUserSettingsLoaded = false;
 
   void restorePurchase() async {
     try {
@@ -33,14 +41,30 @@ class AppController extends GetxController {
     return info;
   }
 
+  void loadUserSettings() {
+    logger.v('loadUserSettings');
+    firestore.collection(kUserSettings).doc(currentUser.value?.uid).get().then((DocumentSnapshot value) {
+      if (value.exists) {
+        userSettings = value.data() as Map<String, dynamic>;
+        logger.w('User settings loaded: ${jsonEncode(userSettings)}');
+        isUserSettingsLoaded = true;
+        iState++;
+      } else {
+        logger.w('User settings is empty');
+        iState++;
+      }
+    });
+  }
+
   void _initFirebaseEventHandler() {
     logger.v('_initFirebaseEventHandler');
     FirebaseAuth.instance.authStateChanges().listen((User? _user) {
-      user = _user;
+      currentUser.value = _user;
       iState++;
-      logger.w('[AuthStateChanged] $user');
+      logger.w('[AuthStateChanged] $_user');
       // Only init IAP after user is logged in
       _initInAppPurchasing();
+      loadUserSettings();
     });
   }
 
@@ -55,7 +79,7 @@ class AppController extends GetxController {
 
   void _initInAppPurchasing() async {
     logger.v('_initInAppPurchasing v2');
-    Purchases.setup(kRevCatApiKey, appUserId: user!.uid, observerMode: false);
+    Purchases.setup(kRevCatApiKey, appUserId: currentUser.value!.uid, observerMode: false);
     await Purchases.setDebugLogsEnabled(true);
     offerings = await Purchases.getOfferings();
     purchaserInfo = await Purchases.getPurchaserInfo();

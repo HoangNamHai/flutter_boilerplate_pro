@@ -20,12 +20,12 @@ class HomepageProfileView extends StatefulWidget {
 class _HomepageProfileViewState extends State<HomepageProfileView> {
   AppController appController = Get.find<AppController>();
   Widget buildAccountTile() {
-    if (appController.user == null) return Container();
+    if (appController.currentUser.value == null) return Container();
     return Column(
       children: [
         'Account'.headerTile(),
-        'ID: ${appController.user?.uid}'.body(),
-        'Creation at: ${appController.user?.metadata.creationTime}\n'.body(),
+        'ID: ${appController.currentUser.value?.uid}'.body(),
+        'Creation at: ${appController.currentUser.value?.metadata.creationTime}\n'.body(),
         Obx(() {
           // Reactive to enable or disable the subscribe button
           print(appController.iState.value);

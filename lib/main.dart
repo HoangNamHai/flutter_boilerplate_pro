@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         // accentColor: kAccentColor,
         brightness: kUseDarkTheme ? Brightness.dark : Brightness.light,
       ),
-      initialRoute: !isFirstTime ? AppIntroScreen.tag : HomePageScreen.tag,
+      initialRoute: isFirstTime ? AppIntroScreen.tag : HomePageScreen.tag,
       getPages: [
         GetPage(name: HomePageScreen.tag, page: () => HomePageScreen(title: 'Home')),
         GetPage(name: AppIntroScreen.tag, page: () => AppIntroScreen()),
