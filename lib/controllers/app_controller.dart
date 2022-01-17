@@ -63,6 +63,7 @@ class AppController extends GetxController {
     (purchaserInfo.entitlements.all[kEntitlementID] != null && purchaserInfo.entitlements.all[kEntitlementID]!.isActive) ? isEntitlementActivated = true : isEntitlementActivated = false;
     logger.w('offerings: $offerings');
     logger.w('purchaserInfo: $purchaserInfo');
+    iState++;
     // logger.w('appUserID: $appUserID');
 
     Purchases.addPurchaserInfoUpdateListener((pInfo) async {

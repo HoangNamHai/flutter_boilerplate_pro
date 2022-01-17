@@ -22,10 +22,11 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  final box = GetStorage();
+
   @override
   Widget build(BuildContext context) {
     Get.put(AppController(), permanent: true);
-    final box = GetStorage();
     bool isFirstTime = box.read(IS_FIRST_TIME) ?? true;
     if (isFirstTime) box.write(IS_FIRST_TIME, false);
     print('isFirstTime: $isFirstTime');
