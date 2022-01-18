@@ -21,6 +21,7 @@ class AppController extends GetxController {
   var offerings;
   var purchaserInfo;
   Map<String, dynamic> userSettings = {};
+  Map<String, dynamic> publicSettings = {};
   bool isEntitlementActivated = false;
   bool isUserSettingsLoaded = false;
 
@@ -41,16 +42,41 @@ class AppController extends GetxController {
     return info;
   }
 
+  void loadPublicSettings() {
+    logger.v('loadPublicSettings');
+    firestore.collection(kPublicSettings).get().then((QuerySnapshot value) {
+      value.docs.forEach((element) {
+        publicSettings[element.id] = element.data();
+      });
+      print(publicSettings);
+      isUserSettingsLoaded = true;
+      iState++;
+    });
+  }
+
+  void listenOnPublicSettings() {
+    // NOTE: data loaded via stream will be available offline
+    Stream pubSettingsStream = firestore.collection(kPublicSettings).snapshots();
+    pubSettingsStream.listen((event) {
+      event.docs.forEach((element) {
+        publicSettings[element.id] = element.data();
+      });
+      print(publicSettings);
+      isUserSettingsLoaded = true;
+      iState++;
+    });
+  }
+
   void loadUserSettings() {
     logger.v('loadUserSettings');
     firestore.collection(kUserSettings).doc(currentUser.value?.uid).get().then((DocumentSnapshot value) {
       if (value.exists) {
         userSettings = value.data() as Map<String, dynamic>;
-        logger.w('User settings loaded: ${jsonEncode(userSettings)}');
+        logger.w('User id = ${currentUser.value?.uid}. Settings loaded: ${jsonEncode(userSettings)}');
         isUserSettingsLoaded = true;
         iState++;
       } else {
-        logger.w('User settings is empty');
+        logger.w('User id = ${currentUser.value?.uid}. Settings is empty');
         iState++;
       }
     });
@@ -65,6 +91,8 @@ class AppController extends GetxController {
       // Only init IAP after user is logged in
       _initInAppPurchasing();
       loadUserSettings();
+      listenOnPublicSettings();
+      // loadPublicSettings();
     });
   }
 
