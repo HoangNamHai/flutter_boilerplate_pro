@@ -6,6 +6,7 @@ import 'package:flutter_app/utils/colors.dart';
 import 'package:flutter_app/utils/custom_printer.dart';
 import 'package:flutter_app/utils/styles.dart';
 import 'package:logger/logger.dart';
+import 'package:sqlite3/sqlite3.dart';
 
 var logger = Logger(
   printer: CustomPrinter('HomePageScreen'),
@@ -40,6 +41,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
     logger.i("Info log");
     logger.w("Warning log");
     logger.e("Error log");
+    print('Using sqlite3 ${sqlite3.version}');
     logger.wtf("What a terrible failure log");
   }
 
