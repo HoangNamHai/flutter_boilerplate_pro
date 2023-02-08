@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'dart:io';
-
+import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/controllers/app_controller.dart';
@@ -58,19 +60,39 @@ void testSqliteFeatures() {
   db.dispose();
 }
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+Future<void> configFirebaseModules() async {
   FirebaseApp defaultApp = await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  // Force disable Crashlytics collection while doing every day development.
+  // Temporarily toggle this to true if you want to test crash reporting in your app.
+  if (kDebugMode) {
+    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
+  }
   print(defaultApp);
-  Get.config(enableLog: true);
-  testSqliteFeatures();
-  // Prefer using app in portrait mode only
-  SystemChrome.setPreferredOrientations(
-    [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
-  ).then(
-    (value) => runApp(MyApp()),
+  print(FirebaseCrashlytics.instance);
+  // The following lines are the same as previously explained in "Handling uncaught errors"
+  // REF: https://firebase.flutter.dev/docs/crashlytics/usage
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+}
+
+Future<void> main() async {
+  runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await configFirebaseModules();
+    Get.config(enableLog: true);
+    testSqliteFeatures();
+    // Prefer using app in portrait mode only
+    SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
+    ).then(
+      (value) => runApp(MyApp()),
+    );
+  }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
+
+  WidgetsFlutterBinding.ensureInitialized();
+  FirebaseApp defaultApp = await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
   );
 }
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/utils/styles.dart';
 
 const String md = '''
-## Emphasis v6
+## Emphasis v8
 
 **This is bold text**
 
