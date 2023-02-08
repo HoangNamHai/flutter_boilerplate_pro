@@ -8,6 +8,10 @@ Just use it and have fun conding.
 
 ## Features:
 
+### 09/02/2023
+- add Firebase core
+- add Firebase crashlytics
+- 
 
 ### 20/12/2021
 - apply dark theme
