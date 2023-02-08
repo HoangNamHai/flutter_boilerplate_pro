@@ -1,16 +1,20 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/controllers/app_controller.dart';
+import 'package:flutter_app/firebase_options.dart';
 import 'package:flutter_app/screens/homepage/homepage_screen.dart';
 import 'package:flutter_app/utils/consts.dart';
 import 'package:get/get.dart';
 import 'package:sqlite3/sqlite3.dart';
 
-void main() {
-  print('-------------');
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   Get.config(enableLog: true);
   // Create a new in-memory database. To use a database backed by a file, you
   // can replace this with sqlite3.open(yourFilePath).
