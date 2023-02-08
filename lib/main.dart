@@ -10,12 +10,7 @@ import 'package:flutter_app/utils/consts.dart';
 import 'package:get/get.dart';
 import 'package:sqlite3/sqlite3.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  Get.config(enableLog: true);
+void testSqliteFeatures() {
   // Create a new in-memory database. To use a database backed by a file, you
   // can replace this with sqlite3.open(yourFilePath).
   final db = sqlite3.openInMemory();
@@ -61,7 +56,16 @@ Future<void> main() async {
 
   // Don't forget to dispose the database to avoid memory leaks
   db.dispose();
+}
 
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  FirebaseApp defaultApp = await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  print(defaultApp);
+  Get.config(enableLog: true);
+  testSqliteFeatures();
   // Prefer using app in portrait mode only
   SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
