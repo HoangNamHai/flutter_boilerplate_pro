@@ -9,9 +9,9 @@ Just use it and have fun conding.
 ## Features:
 
 ### 09/02/2023
-- add Firebase core
-- add Firebase crashlytics
-- 
+- add Firebase core (both iOS and Android)
+- add Firebase crashlytics (both iOS and Android)
+- add SQLite3 with json1 extension (both iOS and Android)
 
 ### 20/12/2021
 - apply dark theme

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -69,8 +70,11 @@ Future<void> configFirebaseModules() async {
   if (kDebugMode) {
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
   }
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+
   print(defaultApp);
   print(FirebaseCrashlytics.instance);
+  print(analytics);
   // The following lines are the same as previously explained in "Handling uncaught errors"
   // REF: https://firebase.flutter.dev/docs/crashlytics/usage
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
@@ -97,6 +101,8 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+  static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
   @override
   Widget build(BuildContext context) {
     Get.put(AppController(), permanent: true);
@@ -109,6 +115,7 @@ class MyApp extends StatelessWidget {
         brightness: kUseDarkTheme ? Brightness.dark : Brightness.light,
       ),
       // home: HomePageScreen(title: kAppTitle),
+      navigatorObservers: <NavigatorObserver>[observer],
       initialRoute: HomePageScreen.tag,
       getPages: [
         GetPage(name: HomePageScreen.tag, page: () => HomePageScreen(title: 'Home')),
