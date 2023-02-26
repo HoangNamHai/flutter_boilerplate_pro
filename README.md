@@ -1,16 +1,32 @@
 # flutter_boilerplate_pro
 
 This flutter_boilerplate_pro will saved you ~30 minutes of doing configuration and writing boring code.
-
 Just use it and have fun conding.
 
 <img src="./docs/icon.png"/>
+
+## TODO:
+- Add pre-bundled SQLite db logic
+    + San Francisco Restaurant Health Inspections: 3 tables / 9.8 MB
+    + http://2016.padjo.org/tutorials/sqlite-data-starterpacks/
+    + Log perf to console
+- Add more robusted theme
+- Add screen template which support rendering data from SQLite db via custom query
+- Custom dialog with animation
+- Ads serving: https://fluttergems.dev/ad-serving/
+- App review
+- firebase_messaging for push notification
+- firebase_in_app_messaging
+- carousel
+- Deep Linking: uni_links
+
 
 ## Features:
 
 ### 09/02/2023
 - add Firebase core (both iOS and Android)
 - add Firebase crashlytics (both iOS and Android)
+- add Firebase analytics (both iOS and Android)
 - add SQLite3 with json1 extension (both iOS and Android)
 
 ### 20/12/2021

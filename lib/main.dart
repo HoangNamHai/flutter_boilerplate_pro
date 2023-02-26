@@ -103,6 +103,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   static FirebaseAnalyticsObserver observer = FirebaseAnalyticsObserver(analytics: analytics);
+
   @override
   Widget build(BuildContext context) {
     Get.put(AppController(), permanent: true);
@@ -120,6 +121,9 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: HomePageScreen.tag, page: () => HomePageScreen(title: 'Home')),
       ],
+      routingCallback: (routing) {
+        print('routingCallback $routing');
+      },
     );
   }
 }

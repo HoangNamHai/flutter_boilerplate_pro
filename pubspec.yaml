@@ -25,6 +25,7 @@ dependencies:
   firebase_core: ^2.5.0
   firebase_crashlytics: ^3.0.12
   firebase_analytics: ^10.1.1
+  package_info_plus: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -61,4 +62,4 @@ flutter_rename_app:
   dart_package_name: flutter_app
   application_id: com.android.flutter_app
   bundle_id: com.ios.flutter_app
-  android_package_name: com.flutter_app
+  android_package_name: com.flutter_appd
