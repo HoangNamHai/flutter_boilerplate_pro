@@ -1,5 +1,6 @@
+import 'package:flutter_app/services/sqlite_service.dart';
 import 'package:flutter_app/utils/utils.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 var logger = getLogger('AppController');
@@ -12,6 +13,7 @@ class AppController extends GetxController {
     super.onInit();
     packageInfo = await PackageInfo.fromPlatform();
     logger.i(packageInfo);
+    await Get.putAsync(() => SqliteService().init());
   }
 
   @override

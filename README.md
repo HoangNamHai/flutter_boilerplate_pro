@@ -6,22 +6,28 @@ Just use it and have fun conding.
 <img src="./docs/icon.png"/>
 
 ## TODO:
-- Add pre-bundled SQLite db logic
-    + San Francisco Restaurant Health Inspections: 3 tables / 9.8 MB
-    + http://2016.padjo.org/tutorials/sqlite-data-starterpacks/
-    + Log perf to console
-- Add more robusted theme
 - Add screen template which support rendering data from SQLite db via custom query
+- Add more robusted theme (NativeBase theme)
 - Custom dialog with animation
-- Ads serving: https://fluttergems.dev/ad-serving/
 - App review
+- firebase_performance
 - firebase_messaging for push notification
 - firebase_in_app_messaging
 - carousel
 - Deep Linking: uni_links
+- RevenueCat
+- Ads serving: https://fluttergems.dev/ad-serving/
 
 
 ## Features:
+
+### 26/02/2023
+- add `path_provider`
+- Add pre-bundled sample SQLite db
+    + San Francisco Restaurant Health Inspections: 3 tables / 9.8 MB
+    + http://2016.padjo.org/tutorials/sqlite-data-starterpacks/
+    + Log perf to console
+- do init SQLite database
 
 ### 09/02/2023
 - add Firebase core (both iOS and Android)
